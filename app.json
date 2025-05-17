@@ -19,6 +19,14 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "notification": {
+        "icon": "./assets/notification-icon.png",
+        "color": "#ffffff",
+        "channelId": "default"
       }
     },
     "web": {
@@ -31,6 +39,19 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "notification": {
+      "androidMode": "default",
+      "androidCollapsedTitle": "New notifications",
+      "channels": [
+        {
+          "id": "default",
+          "name": "Default",
+          "importance": "default",
+          "sound": true,
+          "vibrate": true
+        }
+      ]
     }
   }
 }

@@ -1,4 +1,3 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -6,7 +5,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
+import { FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
+import { Link } from 'expo-router';
+import { Pressable } from 'react-native';
 import { useColorScheme } from '@/components/useColorScheme';
+import Colors from '@/constants/Colors';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -42,7 +45,7 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return <RootLayoutNav/>;
 }
 
 function RootLayoutNav() {
@@ -53,6 +56,91 @@ function RootLayoutNav() {
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="hiddenScreens/addActivity" 
+                      options={{ title: 'Add Activity',
+                        headerRight: () => (
+                          <Link href="/(tabs)/weather" asChild>
+                            <Pressable>
+                              {({ pressed }) => (
+                                <MaterialCommunityIcons
+                                  name="weather-sunny"
+                                  size={40}
+                                  color={Colors[colorScheme ?? 'light'].text}
+                                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                                />
+                              )}
+                            </Pressable>
+                          </Link>
+                        ),
+                      }}/>
+        <Stack.Screen name="hiddenScreens/editActivity" 
+                      options={{ title: 'Edit Activity',
+                        headerRight: () => (
+                          <Link href="/(tabs)/weather" asChild>
+                            <Pressable>
+                              {({ pressed }) => (
+                                <MaterialCommunityIcons
+                                  name="weather-sunny"
+                                  size={40}
+                                  color={Colors[colorScheme ?? 'light'].text}
+                                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                                />
+                              )}
+                            </Pressable>
+                          </Link>
+                        ),
+                      }}/>
+        <Stack.Screen name="hiddenScreens/addTask" 
+                      options={{ title: 'Add Task',
+                        headerRight: () => (
+                          <Link href="/(tabs)/weather" asChild>
+                            <Pressable>
+                              {({ pressed }) => (
+                                <MaterialCommunityIcons
+                                  name="weather-sunny"
+                                  size={40}
+                                  color={Colors[colorScheme ?? 'light'].text}
+                                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                                />
+                              )}
+                            </Pressable>
+                          </Link>
+                        ),
+                      }}/>
+        <Stack.Screen name="hiddenScreens/editTask" 
+                      options={{ title: 'Edit Task',
+                        headerRight: () => (
+                          <Link href="/(tabs)/weather" asChild>
+                            <Pressable>
+                              {({ pressed }) => (
+                                <MaterialCommunityIcons
+                                  name="weather-sunny"
+                                  size={40}
+                                  color={Colors[colorScheme ?? 'light'].text}
+                                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                                />
+                              )}
+                            </Pressable>
+                          </Link>
+                        ),
+                      }}/>
+        <Stack.Screen name="hiddenScreens/changeLocation" 
+                      options={{ title: 'Change Location',
+                        headerRight: () => (
+                          <Link href="/(tabs)/weather" asChild>
+                            <Pressable>
+                              {({ pressed }) => (
+                                <MaterialCommunityIcons
+                                  name="weather-sunny"
+                                  size={40}
+                                  color={Colors[colorScheme ?? 'light'].text}
+                                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                                />
+                              )}
+                            </Pressable>
+                          </Link>
+                        ),
+                      }}/>
       </Stack>
     </ThemeProvider>
   );
